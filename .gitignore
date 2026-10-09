@@ -1,0 +1,4 @@
+*.zip
+_chat.txt
+WhatsApp*.txt
+node_modules/

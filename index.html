@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>What Did I Miss?</title>
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%94%A5%3C/text%3E%3C/svg%3E">  <link rel="stylesheet" href="5style.css">
+</head>
+<body>
+  <div class="bg"><span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span></div>
+
+  <main class="wrap">
+    <header class="hero">
+      <div class="badge">🔒 Local-first · your chats never leave this device</div>
+      <h1>What Did <span class="grad">I Miss?</span></h1>
+      <p class="sub">Drop in a chat. Get what matters, ranked by urgency.</p>
+    </header>
+
+    <section class="card input-card">
+      <div class="row">
+        <label>Your name in the chat
+          <input id="myName" value="Yashraj">
+        </label>
+        <label>Only last N messages (unread)
+          <input id="lastN" type="number" min="1" placeholder="all">
+        </label>
+      </div>
+      <textarea id="rawChat" rows="6" placeholder="Paste a WhatsApp chat export here..."></textarea>
+      <div class="actions">
+        <button id="analyzeBtn" class="btn">✨ Analyze</button>
+        <button id="sampleBtn" class="btn ghost">Load sample</button>
+        <label class="btn ghost">📎 Upload .txt
+          <input id="fileInput" type="file" accept=".txt" hidden>
+        </label>
+      </div>
+    </section>
+
+    <section id="results" hidden>
+      <div id="summary" class="card summary"></div>
+      <div id="stats" class="stats"></div>
+      <div id="blocks" class="blocks"></div>
+
+      <div class="tl-head">
+        <h2>Timeline</h2>
+        <div class="seg">
+          <button data-sort="time" class="on">By time</button>
+          <button data-sort="priority">By priority</button>
+        </div>
+      </div>
+      <div id="timeline"></div>
+
+      <details id="noiseBox" class="noise-box">
+        <summary id="noiseSummary"></summary>
+        <div id="noiseList"></div>
+      </details>
+    </section>
+
+    <footer>Built for the Unread Problem challenge · runs entirely in your browser</footer>
+  </main>
+
+  <script src="sample.js"></script>
+  <script src="parser.js"></script>
+  <script src="scorer.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
